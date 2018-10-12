@@ -48,15 +48,15 @@ $(document).ready(function(){
 		console.log(childSnapshot.val());
 
 		// assign firebase variables to snapshots.
-		var firebaseName = childSnapshot.val().name;
-		var firebaseLine = childSnapshot.val().line;
-		var firebaseDestination = childSnapshot.val().destination;
-		var firebaseTrainTimeInput = childSnapshot.val().trainTime;
-		var firebaseFrequency = childSnapshot.val().frequency;
+		var fbName = childSnapshot.val().name;
+		var fbLine = childSnapshot.val().line;
+		var fbDest = childSnapshot.val().destination;
+		var fbTTI = childSnapshot.val().trainTime;
+		var fbfreq = childSnapshot.val().frequency;
 		
-		var diffTime = moment().diff(moment.unix(firebaseTrainTimeInput), "minutes");
-		var timeRemainder = moment().diff(moment.unix(firebaseTrainTimeInput), "minutes") % firebaseFrequency ;
-		var minutes = firebaseFrequency - timeRemainder;
+		var diffTime = moment().diff(moment.unix(fbTTI), "minutes");
+		var timeRemainder = moment().diff(moment.unix(fbTTI), "minutes") % fbfreq ;
+		var minutes = fbfreq - timeRemainder;
 
 		var nextTrainArrival = moment().add(minutes, "m").format("hh:mm A"); 
 		
@@ -68,7 +68,7 @@ $(document).ready(function(){
 		console.log(moment().format("X"));
 
 		// Append train info to table on page
-		$("#trainTable > tbody").append("<tr><td>" + firebaseName + "</td><td>" + firebaseLine + "</td><td>"+ firebaseDestination + "</td><td>" + firebaseFrequency + " mins" + "</td><td>" + nextTrainArrival + "</td><td>" + minutes + "</td></tr>");
+		$("#trainTable > tbody").append("<tr><td>" + fbName + "</td><td>" + fbLine + "</td><td>"+ fbDest + "</td><td>" + fbfreq + " mins" + "</td><td>" + nextTrainArrival + "</td><td>" + minutes + "</td></tr>");
 
 	});
 });
