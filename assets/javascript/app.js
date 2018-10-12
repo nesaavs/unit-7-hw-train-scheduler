@@ -1,16 +1,16 @@
 $(document).ready(function(){
 	// 1. Link to Firebase
-	var trainData = new Firebase("https://inclasswork-a665b.firebaseio.com/");
+	const trainData = new Firebase("https://inclasswork-a665b.firebaseio.com/");
 
 	// 2. Button for adding Trains
 	$("#addTrainBtn").on("click", function(){
 
 		// Grabs user input and assign to variables
-		var trainName = $("#trainNameInput").val().trim();
-		var lineName = $("#lineInput").val().trim();
-		var destination = $("#destinationInput").val().trim();
-		var trainTimeInput = moment($("#trainTimeInput").val().trim(), "HH:mm").subtract(10, "years").format("X");;
-		var frequencyInput = $("#frequencyInput").val().trim();
+		const trainName = $("#trainNameInput").val().trim();
+		const lineName = $("#lineInput").val().trim();
+		const destination = $("#destinationInput").val().trim();
+		const trainTimeInput = moment($("#trainTimeInput").val().trim(), "HH:mm").subtract(10, "years").format("X");;
+		const frequencyInput = $("#frequencyInput").val().trim();
 
 		// Test for variables entered
 		console.log(trainName);
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 		// Creates local "temporary" object for holding train data
 		// Will push this to firebase
-		var newTrain = {
+		const newTrain = {
 			name:  trainName,
 			line: lineName,
 			destination: destination,
@@ -48,17 +48,17 @@ $(document).ready(function(){
 		console.log(childSnapshot.val());
 
 		// assign firebase variables to snapshots.
-		var fbName = childSnapshot.val().name;
-		var fbLine = childSnapshot.val().line;
-		var fbDest = childSnapshot.val().destination;
-		var fbTTI = childSnapshot.val().trainTime;
-		var fbfreq = childSnapshot.val().frequency;
+		const fbName = childSnapshot.val().name;
+		const fbLine = childSnapshot.val().line;
+		const fbDest = childSnapshot.val().destination;
+		const fbTTI = childSnapshot.val().trainTime;
+		const fbfreq = childSnapshot.val().frequency;
 		
-		var diffTime = moment().diff(moment.unix(fbTTI), "minutes");
-		var timeRemainder = moment().diff(moment.unix(fbTTI), "minutes") % fbfreq ;
-		var minutes = fbfreq - timeRemainder;
+		const diffTime = moment().diff(moment.unix(fbTTI), "minutes");
+		const timeRemainder = moment().diff(moment.unix(fbTTI), "minutes") % fbfreq ;
+		const minutes = fbfreq - timeRemainder;
 
-		var nextTrainArrival = moment().add(minutes, "m").format("hh:mm A"); 
+		const nextTrainArrival = moment().add(minutes, "m").format("hh:mm A"); 
 		
 		// Test for correct times and info
 		console.log(minutes);
