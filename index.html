@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified Bootstrap CSS & JS Libraries -->
+	<link rel="stylesheet" href="assets/css/bootstrap-4.1.3.css">
+
+	<!-- logo on tab -->
+	<link rel = "shortcut icon" href = "assets/images/train.gif" />
+	
+	<title> Train Scheduler </title>
+
+	</head>
+
+<!--  Navigation Bar Starts here -->
+
+  <nav class="navbar navbar-light navbar-expand-md" id="navig">
+    <div class="container" id="ctnr"><a class="navbar-brand" href="#">About Nestor Saavedra</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navcol-1">
+        <ul class="nav navbar-nav">
+          <li class="nav-item" role="presentation"><a class="nav-link text-dark bg-success active" href="index.html" id="ActiveButton">Home</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link text-dark" href="portfolio.html">Potfolio</a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link text-dark" href="Contact.html">Contact</a></li>
+          <li class="dropdown"><a class="dropdown-toggle nav-link text-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="links.html" target="_blank">HW's-Links</a>
+            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Hangman Game</a><a class="dropdown-item" role="presentation" href="#">Crystal Collector Game</a><a class="dropdown-item" role="presentation" href="#">Giftastic</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<!--  Navigation Bar Ends here -->
+
+
+
+<body>
+	<div class="container">
+		<div class="jumbotron bg-dark text-light">
+			<h1 class="text-center">Train Schedule</h1>
+			<h3 class="text-center">Choo Choo; Chhose your destination</h3>
+		</div>
+
+		<div class="row">
+			<div class="col col-12 col-sm-6 col-md-4 mb-4">
+				<!-- Add New Trains -->
+
+				<div class="card">
+					<div class="card-heading">
+						<h3 class="card-title"><strong>Add a New Train</strong></h3>
+					</div>
+
+					<div class="card-body">
+						<!-- Entry Form -->
+						<form>
+							<div class="form-group">
+								<label for="">Train Name</label>
+								<input type="text" class="form-control" id="trainNameInput">
+							</div>
+
+							<div class="form-group">
+								<label for="">Line</label>
+								<input type="text" class="form-control" id="lineInput">
+							</div>
+
+							<div class="form-group">
+								<label for="">Destination</label>
+								<input type="text" class="form-control" id="destinationInput">
+							</div>
+
+							<div class="form-group">
+								<label for="">First Train Time (HH:mm - military time)</label>
+								<input type="text" class="form-control" id="trainTimeInput">
+							</div>
+
+							<div class="form-group">
+								<label for="">Frequency (min)</label>
+								<input type="text" class="form-control" id="frequencyInput">
+							</div>
+
+							<button type="submit" class="btn btn-primary" id="addTrainBtn">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+          	<div class="col col-12 col-sm-6 col-md-8 mb-4">
+
+				<!-- Current Trains -->
+				<div class="card">
+					<div class="card-heading">
+						<h3 class="card-title"><strong>Current Train</strong></h3>
+					</div>
+					<div class="card-body">
+						<table class="table table-hover" id='trainTable'>
+							<thead>
+								<tr>
+									<th>Train Name</th>
+									<th>Line</th>
+									<th>Destination</th>
+									<th>Frequency</th>
+									<th>Next Arrival</th>
+									<th>Minutes Away</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Javascripts -->
+
+
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	 crossorigin="anonymous"></script>
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+
+	<!-- Moment.js-->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+	<!--  Custom Js  -->
+	<script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
